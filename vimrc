@@ -1,4 +1,4 @@
-" Auot load vim-plug on start up
+" Auto load vim-plug on start up
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -24,8 +24,6 @@ Plug 'sheerun/vim-polyglot'
 
 " NerdTTree
 Plug 'preservim/nerdtree'
-
-
 
 " Initialize plugin system
 call plug#end()
@@ -60,5 +58,3 @@ set termguicolors
 set scrolloff=10
 
 set signcolumn=yes
-
-
