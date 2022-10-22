@@ -1,0 +1,49 @@
+## Used for VimTex math mode detection
+# ----------------------------- #
+global !p
+def math():
+  return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+# ----------------------------- #
+
+##-------------------------------------- Tezt related snippets
+snippet tt "The \texttt{} command for typewriter-style font"
+\texttt{$1}$0
+endsnippet
+
+snippet tii "The \textit{} command for italic font"
+\textit{${1:${VISUAL:}}}$0
+endsnippet
+
+##-------------------------------------- Maths related snippets
+## frac in math mode -> ff
+context "math()"
+snippet ff "The LaTeX \frac{}{} command"
+\frac{$1}{$2}$0
+endsnippet
+
+## inline math mode snippet -> mm
+snippet "(^|[^a-zA-Z])mm" "Inline LaTeX math" rA
+`!p snip.rv = match.group(1)`\$ ${1:${VISUAL:}} \$$0
+endsnippet
+
+## Euler e in math mode -> ee
+snippet "([^a-zA-Z])ee" "e^{} supercript" rA
+`!p snip.rv = match.group(1)`e^{${1:${VISUAL:}}}$0
+endsnippet
+
+##-------------------------------------- Environment snippets
+snippet env "New LaTeX environment" b
+\begin{$1}
+    $2
+\end{$1}
+$0
+endsnippet
+
+##-------------------------------------- Misc
+snippet hr "The hyperref package's \href{}{} command (for url links)"
+\href{${1:url}}{${2:display name}}$0
+endsnippet
+
+
+
