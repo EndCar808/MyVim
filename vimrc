@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
 " OneDark Colorscheme Plugin
 Plug 'joshdick/onedark.vim'
 
+" Git Related plugins
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " AAirline 
@@ -21,6 +23,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'dense-analysis/ale'
 
 " NerdTTree
 Plug 'preservim/nerdtree'
@@ -31,6 +35,8 @@ Plug 'honza/vim-snippets'
 
 "  Latex Packages
 Plug 'lervag/vimtex'
+
+Plug 'easymotion/vim-easymotion'     " go to any word quickly '\\w', '\\e', '\\b'
 
 " Initialize plugin system
 call plug#end()
@@ -63,6 +69,23 @@ let g:UltiSnipsEditSplit="vertical"
 set number
 set relativenumber
 set nu
+
+" Set Gitgutter update time
+set updatetime=1000
+
+
+" lightline 
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 
 " Searching options
 set nohlsearch
