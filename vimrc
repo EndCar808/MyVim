@@ -28,7 +28,8 @@ Plug 'dense-analysis/ale'
 
 " NerdTTree
 Plug 'preservim/nerdtree'
-
+" Fuzzy Seearch
+Plug 'junegunn/fzf'
 " Vim snippets
 Plug 'SirVer/ultisnips' 
 Plug 'honza/vim-snippets'
